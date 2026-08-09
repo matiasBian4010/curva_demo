@@ -1,0 +1,1212 @@
+:root {
+    --sage: #5C7A63;
+    --sage-dark: #46604d;
+
+    --cream: #F8F6F0;
+    --paper: #C9C7B8;
+
+    --black: #1A1A1A;
+    --black-soft: #141414;
+
+    --white: #FFFFFF;
+
+    --text-muted: #686860;
+    --border: rgba(26, 26, 26, 0.14);
+
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Inter", Arial, sans-serif;
+
+    --container: 1180px;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--black);
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+.container {
+    width: min(var(--container), calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section-paper {
+    background-color: var(--paper);
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,0.18) 1px,
+            transparent 1px
+        );
+
+    background-size: 6px 6px;
+}
+
+.eyebrow {
+    margin-bottom: 18px;
+
+    color: var(--sage);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.eyebrow-light {
+    color: #d8e1d7;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+}
+
+h1 {
+    font-size: clamp(70px, 9vw, 130px);
+    line-height: 0.84;
+    letter-spacing: -4px;
+}
+
+h2 {
+    font-size: clamp(52px, 6vw, 82px);
+    line-height: 0.92;
+    letter-spacing: -2px;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(248, 246, 240, 0.94);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.brand,
+.footer-brand {
+    font-family: var(--serif);
+    font-size: 31px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.brand span {
+    font-family: var(--sans);
+
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    margin-left: auto;
+}
+
+.desktop-nav a {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #4c4c47;
+
+    transition: color .2s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active {
+    color: var(--sage);
+}
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 13px 24px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: .4px;
+
+    border: 1px solid transparent;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    background: var(--sage);
+    color: white;
+}
+
+.button-primary:hover {
+    background: var(--sage-dark);
+}
+
+.button-outline {
+    background: transparent;
+    border-color: var(--black);
+    color: var(--black);
+}
+
+.button-light {
+    background: var(--cream);
+    color: var(--black);
+}
+
+.button-large {
+    min-height: 56px;
+    padding: 15px 30px;
+}
+
+.menu-button {
+    display: none;
+
+    border: 0;
+    background: none;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    padding: 70px 0 100px;
+    background: var(--cream);
+}
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+.hero-copy {
+    padding: 40px 0;
+}
+
+.hero-description {
+    max-width: 480px;
+
+    margin-top: 35px;
+
+    font-size: 18px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 38px;
+}
+
+.hero-image {
+    height: 650px;
+}
+
+
+/* =========================
+   IMAGE FRAME
+========================= */
+
+.image-frame {
+    overflow: hidden;
+
+    background: #b9b6a8;
+}
+
+.image-frame img {
+    transition: transform .5s ease;
+}
+
+.image-frame:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =========================
+   ACTIVITIES
+========================= */
+
+.activities {
+    padding: 130px 0;
+}
+
+.section-intro {
+    max-width: 680px;
+
+    margin-bottom: 70px;
+}
+
+.section-intro > p:last-child {
+    max-width: 500px;
+
+    margin-top: 25px;
+
+    font-size: 17px;
+}
+
+.activity-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+}
+
+.activity-card {
+    background: var(--cream);
+
+    border: 1px solid rgba(26,26,26,.12);
+}
+
+.activity-large {
+    grid-row: span 2;
+}
+
+.activity-wide {
+    grid-column: span 2;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.activity-image {
+    height: 360px;
+}
+
+.activity-large .activity-image {
+    height: 540px;
+}
+
+.activity-wide .activity-image {
+    height: 360px;
+}
+
+.activity-info {
+    padding: 30px;
+}
+
+.activity-number {
+    color: var(--sage);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.activity-info h3 {
+    margin-top: 12px;
+
+    font-size: 48px;
+    line-height: .9;
+
+    text-transform: uppercase;
+}
+
+.activity-info p {
+    max-width: 420px;
+
+    margin: 20px 0;
+}
+
+.activity-info a {
+    color: var(--sage);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   SCHEDULE CTA
+========================= */
+
+.schedule-cta {
+    padding: 110px 0;
+
+    background: var(--black);
+    color: white;
+}
+
+.schedule-cta-inner {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: end;
+
+    gap: 80px;
+}
+
+.schedule-cta h2 {
+    color: white;
+}
+
+.schedule-cta p:not(.eyebrow) {
+    max-width: 450px;
+
+    margin-bottom: 28px;
+
+    color: #bdbdb7;
+}
+
+
+/* =========================
+   REGISTRATION CTA
+========================= */
+
+.registration {
+    padding: 110px 0;
+}
+
+.registration-inner {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+}
+
+.registration-inner > div {
+    max-width: 620px;
+}
+
+.registration-inner p:last-child {
+    max-width: 500px;
+
+    margin-top: 22px;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   PAGE HERO
+========================= */
+
+.page-hero {
+    padding: 100px 0 90px;
+}
+
+.page-hero p:last-child {
+    max-width: 550px;
+
+    margin-top: 28px;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   SCHEDULE
+========================= */
+
+.schedule-section {
+    padding: 70px 0 120px;
+}
+
+.schedule-filters {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 45px;
+}
+
+.filter-button {
+    border: 1px solid var(--black);
+
+    background: transparent;
+
+    color: var(--black);
+
+    padding: 11px 20px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: var(--sage);
+    border-color: var(--sage);
+
+    color: white;
+}
+
+.schedule-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.day-card {
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    background: rgba(248,246,240,.72);
+
+    border: 1px solid rgba(26,26,26,.1);
+
+    border-radius: 28px;
+}
+
+.day-name {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 64px;
+
+    padding: 15px;
+
+    background: var(--cream);
+
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.day-activities {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.schedule-item {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.activity-name {
+    color: var(--sage);
+
+    font-family: var(--serif);
+
+    font-size: 26px;
+
+    text-transform: uppercase;
+}
+
+.time-pill {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 10px 20px;
+
+    border-radius: 999px;
+
+    background: var(--sage);
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.schedule-note {
+    margin-top: 35px;
+
+    padding: 20px;
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.schedule-note p {
+    font-size: 12px;
+}
+
+.schedule-bottom-cta {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-top: 80px;
+}
+
+.schedule-bottom-cta h2 {
+    font-size: 55px;
+}
+
+
+/* =========================
+   REGISTRATION PAGE
+========================= */
+
+.registration-page {
+    padding: 100px 0 130px;
+}
+
+.registration-layout {
+    display: grid;
+
+    grid-template-columns: .8fr 1fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+.registration-intro h1 {
+    margin-top: 10px;
+}
+
+.registration-intro > p {
+    max-width: 470px;
+
+    margin-top: 35px;
+
+    font-size: 17px;
+}
+
+.registration-info {
+    max-width: 430px;
+
+    margin-top: 50px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+}
+
+.registration-info strong {
+    font-size: 13px;
+}
+
+.registration-info p {
+    margin-top: 10px;
+
+    font-size: 13px;
+}
+
+.registration-form-wrapper {
+    background: var(--cream);
+
+    padding: 45px;
+
+    border: 1px solid rgba(26,26,26,.14);
+
+    border-radius: 28px;
+}
+
+.form-section-title {
+    margin-bottom: 28px;
+
+    font-family: var(--serif);
+
+    font-size: 36px;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid rgba(26,26,26,.18);
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--black);
+
+    outline: none;
+
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--sage);
+}
+
+.checkbox-field {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin: 25px 0;
+
+    font-size: 12px;
+
+    color: var(--text-muted);
+}
+
+.checkbox-field input {
+    margin-top: 4px;
+}
+
+.button-full {
+    width: 100%;
+}
+
+.form-disclaimer {
+    margin-top: 15px;
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+.success-box {
+    text-align: center;
+
+    padding: 50px 20px;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background: var(--sage);
+
+    color: white;
+
+    font-size: 24px;
+}
+
+.success-box h2 {
+    font-size: 52px;
+}
+
+.success-box p {
+    max-width: 450px;
+
+    margin: 20px auto 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+    padding: 80px 0 130px;
+}
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: .75fr 1.25fr;
+
+    gap: 80px;
+}
+
+.contact-information {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 35px;
+}
+
+.contact-item span,
+.contact-instagram span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--sage);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.contact-item a,
+.contact-instagram a {
+    font-family: var(--serif);
+
+    font-size: 32px;
+}
+
+.contact-item p {
+    font-size: 16px;
+}
+
+.contact-instagram {
+    padding-top: 30px;
+
+    border-top: 1px solid var(--border);
+
+    width: 100%;
+}
+
+.map-container {
+    min-height: 550px;
+}
+
+.map-placeholder {
+    height: 100%;
+    min-height: 550px;
+
+    display: grid;
+    place-items: center;
+
+    background: #b4b1a4;
+
+    color: rgba(26,26,26,.55);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.contact-final {
+    padding: 100px 0;
+
+    background: var(--black);
+
+    color: white;
+
+    text-align: center;
+}
+
+.contact-final h2 {
+    margin-bottom: 35px;
+
+    color: white;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+    padding: 70px 0 25px;
+
+    background: var(--black);
+
+    color: white;
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr .8fr;
+
+    gap: 40px;
+}
+
+.footer-brand {
+    color: white;
+}
+
+.footer-grid p {
+    margin-top: 12px;
+
+    color: #9d9d97;
+
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.footer-links a,
+.footer-social a {
+    color: #d5d5d0;
+
+    font-size: 12px;
+}
+
+.footer-social p {
+    margin-top: 0;
+}
+
+.footer-instagram {
+    height: 110px;
+
+    border-radius: 4px;
+}
+
+.footer-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 60px;
+    padding-top: 20px;
+
+    border-top: 1px solid #373737;
+
+    color: #777771;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .desktop-nav,
+    .header-button {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .mobile-nav {
+        display: none;
+
+        flex-direction: column;
+
+        padding: 20px 24px;
+
+        background: var(--cream);
+
+        border-top: 1px solid var(--border);
+    }
+
+    .mobile-nav.open {
+        display: flex;
+    }
+
+    .mobile-nav a {
+        padding: 12px 0;
+
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .hero-grid,
+    .schedule-cta-inner,
+    .registration-layout,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        height: 500px;
+    }
+
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-large {
+        grid-row: auto;
+    }
+
+    .activity-wide {
+        grid-column: auto;
+
+        display: block;
+    }
+
+    .activity-large .activity-image,
+    .activity-image,
+    .activity-wide .activity-image {
+        height: 420px;
+    }
+
+    .registration-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .day-card {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-layout {
+        gap: 50px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(
+            var(--container),
+            calc(100% - 30px)
+        );
+    }
+
+    h1 {
+        font-size: 65px;
+    }
+
+    h2 {
+        font-size: 52px;
+    }
+
+    .hero {
+        padding: 45px 0 70px;
+    }
+
+    .hero-image {
+        height: 400px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button-large {
+        width: 100%;
+    }
+
+    .activities,
+    .section {
+        padding: 80px 0;
+    }
+
+    .activity-large .activity-image,
+    .activity-image,
+    .activity-wide .activity-image {
+        height: 320px;
+    }
+
+    .activity-info h3 {
+        font-size: 42px;
+    }
+
+    .schedule-item {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .time-pill {
+        width: 100%;
+    }
+
+    .schedule-bottom-cta {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .schedule-bottom-cta h2 {
+        font-size: 48px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-form-wrapper {
+        padding: 25px 20px;
+    }
+
+    .contact-grid {
+        gap: 45px;
+    }
+
+    .map-placeholder,
+    .map-container {
+        min-height: 400px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
