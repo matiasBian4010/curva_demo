@@ -1,446 +1,241 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>curva · espacio | Entrenamiento para cuerpo y mente</title>
+    <title>curva · espacio</title>
 
-    <meta
-        name="description"
-        content="Curva · espacio. Pilates, calistenia, yoga y stretching. Entrenamiento para cuerpo y mente."
-    >
+    <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="css/style.css">
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-<header class="site-header">
+    <header class="site-header">
+        <nav class="navbar">
 
-    <div class="container header-inner">
+            <a href="index.html" class="logo">Curva</a>
 
-        <a href="index.html" class="brand">
-            Curva <span>· espacio</span>
-        </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                ☰
+            </button>
 
-        <nav class="desktop-nav">
-            <a href="index.html">Inicio</a>
-            <a href="index.html#actividades">Actividades</a>
-            <a href="horarios.html">Horarios</a>
-            <a href="contacto.html">Contacto</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="active">Inicio</a>
+                <a href="index.html#actividades">Actividades</a>
+                <a href="horarios.html">Horarios</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="registro.html" class="nav-cta">Quiero registrarme</a>
+            </div>
+
         </nav>
-
-        <a href="registro.html" class="button button-primary header-button">
-            Quiero registrarme
-        </a>
-
-        <button class="menu-button" id="menuButton" aria-label="Abrir menú">
-            ☰
-        </button>
-
-    </div>
-
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="index.html">Inicio</a>
-        <a href="index.html#actividades">Actividades</a>
-        <a href="horarios.html">Horarios</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="registro.html">Quiero registrarme</a>
-    </nav>
-
-</header>
+    </header>
 
 
-<main>
+    <main>
 
-    <!-- HERO -->
+        <!-- HERO -->
+        <section class="hero">
 
-    <section class="hero">
+            <div class="hero-content">
 
-        <div class="container hero-grid">
+                <p class="eyebrow">CURVA · ENTRENAMIENTO</p>
 
-            <div class="hero-copy">
+                <h1>Curva</h1>
 
-                <p class="eyebrow">
-                    ENTRENAMIENTO · MOVIMIENTO · BIENESTAR
+                <p class="hero-subtitle">
+                    Entrenamiento para cuerpo y mente.
                 </p>
-
-                <h1>
-                    Entrenamiento<br>
-                    para cuerpo<br>
-                    y mente.
-                </h1>
 
                 <p class="hero-description">
-                    Un espacio para moverte, entrenar y encontrar
-                    la actividad que mejor se adapta a vos.
+                    Un espacio para moverte, entrenar y conectar con tu cuerpo.
+                    Clases personalizadas y grupos reducidos para todos los niveles.
                 </p>
 
-                <div class="hero-actions">
-
-                    <a
-                        href="registro.html"
-                        class="button button-primary button-large"
-                    >
+                <div class="hero-buttons">
+                    <a href="registro.html" class="btn btn-primary">
                         Quiero registrarme
                     </a>
 
-                    <a
-                        href="horarios.html"
-                        class="button button-outline button-large"
-                    >
+                    <a href="horarios.html" class="btn btn-secondary">
                         Ver horarios
                     </a>
-
                 </div>
 
             </div>
 
-
-            <div class="hero-image image-frame">
-
-                <img
-                    src="images/hero.jpg"
-                    alt="Interior de Curva · espacio, mostrando el ambiente de entrenamiento"
-                >
-
+            <div class="hero-image">
+                <img src="https://i.ibb.co/39Xh1VMg/Chat-GPT-Image-Aug-9-2026-06-13-43-PM.png"
+                    alt="Fotografía real del espacio Curva y personas entrenando" border="0">
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- ACTIVIDADES -->
+        <!-- ACTIVIDADES -->
+        <section class="activities-section" id="actividades">
 
-    <section id="actividades" class="activities section-paper">
-
-        <div class="container">
-
-            <div class="section-intro">
-
-                <p class="eyebrow">
-                    ENCONTRÁ TU FORMA
-                </p>
-
-                <h2>
-                    Diferentes maneras<br>
-                    de moverte.
-                </h2>
-
+            <div class="section-heading">
+                <p class="eyebrow">MOVIMIENTO</p>
+                <h2>Nuestras actividades</h2>
                 <p>
-                    Clases personalizadas y grupos reducidos
-                    para acompañarte en cada etapa.
+                    Elegí la actividad que mejor se adapte a vos.
                 </p>
-
             </div>
 
 
             <div class="activity-grid">
 
+                <article class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://www.lanacion.com.ar/resizer/v2/el-pilates-esta-viviendo-un-boom-como-nunca-antes-AVSJVA2NIJHHRNGMYUJF6BVEII.JPG?auth=212dcbfe2565f1b15836f2805d3e4968150fbaca1ac7b44af1a2a1fc188b2184&width=1200&height=1200&quality=70&smart=true"
+                            alt="Personas realizando una clase de Pilates">
+                    </div>
 
-                <!-- PILATES -->
-
-                <article class="activity-card activity-large">
-
-                    <div class="activity-image image-frame">
-
-                        <img
-                            src="images/pilates.jpg"
-                            alt="Clase de Pilates en Curva"
-                        >
-
+                    <div class="activity-title">
+                        <h3>Pilates</h3>
                     </div>
 
                     <div class="activity-info">
-
-                        <span class="activity-number">01</span>
-
-                        <h3>Pilates</h3>
-
                         <p>
-                            Movimiento, control y conciencia
-                            corporal para fortalecer y sentirte mejor.
+                            Movimiento consciente, fuerza y control corporal.
+                            Ideal para trabajar postura, movilidad y estabilidad.
                         </p>
 
                         <a href="horarios.html?actividad=pilates">
                             Ver horarios →
                         </a>
-
                     </div>
-
                 </article>
 
 
-                <!-- CALESTENIA -->
-
                 <article class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://blogscdn.thehut.net/wp-content/uploads/sites/450/2018/06/26100700/ejercicios-de-calistenia.jpg"
+                            alt="Persona realizando ejercicios de calistenia">
+                    </div>
 
-                    <div class="activity-image image-frame">
-
-                        <img
-                            src="images/calistenia.jpg"
-                            alt="Persona realizando entrenamiento de calistenia"
-                        >
-
+                    <div class="activity-title">
+                        <h3>Calistenia</h3>
                     </div>
 
                     <div class="activity-info">
-
-                        <span class="activity-number">02</span>
-
-                        <h3>Calistenia</h3>
-
                         <p>
-                            Fuerza, control y movimiento utilizando
-                            el propio cuerpo.
+                            Entrenamiento utilizando el peso corporal para
+                            desarrollar fuerza, coordinación y control.
                         </p>
 
                         <a href="horarios.html?actividad=calistenia">
                             Ver horarios →
                         </a>
-
                     </div>
-
                 </article>
 
-
-                <!-- YOGA -->
 
                 <article class="activity-card">
-
-                    <div class="activity-image image-frame">
-
-                        <img
-                            src="images/yoga.jpg"
-                            alt="Clase de yoga en Curva"
-                        >
-
+                    <div class="activity-image">
+                        <img src="https://www.lanacion.com.ar/resizer/v2/tener-una-rutina-de-stretching-es-crucial-antes-ZVGTNDY2RJAFDK6FNNMJNM5RAE.JPG?auth=73c7207e439cc6bf8ff321c32a39fa1faf89ce833e7b2377edb4658e9f6f343c&width=1920&height=1080&quality=70&smart=true"
+                            alt="Persona realizando ejercicios de stretching">
                     </div>
 
-                    <div class="activity-info">
-
-                        <span class="activity-number">03</span>
-
-                        <h3>Yoga</h3>
-
-                        <p>
-                            Respiración, movimiento y equilibrio
-                            para conectar cuerpo y mente.
-                        </p>
-
-                        <a href="horarios.html?actividad=yoga">
-                            Ver horarios →
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-                <!-- STRETCHING -->
-
-                <article class="activity-card activity-wide">
-
-                    <div class="activity-image image-frame">
-
-                        <img
-                            src="images/stretching.jpg"
-                            alt="Clase de stretching y movilidad corporal"
-                        >
-
-                    </div>
-
-                    <div class="activity-info">
-
-                        <span class="activity-number">04</span>
-
+                    <div class="activity-title">
                         <h3>Stretching</h3>
+                    </div>
 
+                    <div class="activity-info">
                         <p>
-                            Flexibilidad, movilidad y recuperación
-                            para acompañar tu entrenamiento.
+                            Una práctica enfocada en movilidad, flexibilidad
+                            y relajación corporal.
                         </p>
 
                         <a href="horarios.html?actividad=stretching">
                             Ver horarios →
                         </a>
+                    </div>
+                </article>
 
+
+                <article class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://content.cuerpomente.com/medio/2024/09/19/clase-de-yoga_ff631630_1489516412_240919082317_1280x720.jpg"
+                            alt="Personas realizando una clase de yoga">
                     </div>
 
+                    <div class="activity-title">
+                        <h3>Yoga</h3>
+                    </div>
+
+                    <div class="activity-info">
+                        <p>
+                            Movimiento, respiración y concentración para
+                            conectar cuerpo y mente.
+                        </p>
+
+                        <a href="horarios.html?actividad=yoga">
+                            Ver horarios →
+                        </a>
+                    </div>
                 </article>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- HORARIOS CTA -->
-
-    <section class="schedule-cta">
-
-        <div class="container schedule-cta-inner">
+        <!-- CTA -->
+        <section class="cta-section">
 
             <div>
+                <p class="eyebrow">CURVA · ESPACIO</p>
 
-                <p class="eyebrow eyebrow-light">
-                    ORGANIZÁ TU SEMANA
-                </p>
-
-                <h2>
-                    Encontrá el horario<br>
-                    para vos.
-                </h2>
-
-            </div>
-
-            <div>
+                <h2>¿Querés empezar?</h2>
 
                 <p>
-                    Consultá nuestra grilla semanal y encontrá
-                    la actividad que mejor se adapte a tu rutina.
+                    Registrate y empezá a formar parte de Curva.
                 </p>
-
-                <a
-                    href="horarios.html"
-                    class="button button-light"
-                >
-                    Ver horarios
-                </a>
-
             </div>
 
-        </div>
-
-    </section>
-
-
-    <!-- REGISTRO -->
-
-    <section class="registration section-paper">
-
-        <div class="container registration-inner">
-
-            <div>
-
-                <p class="eyebrow">
-                    PRIMER PASO
-                </p>
-
-                <h2>
-                    ¿Querés empezar?
-                </h2>
-
-                <p>
-                    Registrate online. Completá tus datos y
-                    recibí la información necesaria para
-                    comenzar en Curva.
-                </p>
-
-            </div>
-
-            <a
-                href="registro.html"
-                class="button button-primary button-large"
-            >
+            <a href="registro.html" class="btn btn-light">
                 Quiero registrarme
             </a>
 
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-brand">
+            <span class="logo">Curva</span>
+            <p>Entrenamiento para cuerpo y mente.</p>
         </div>
-
-    </section>
-
-</main>
-
-
-<footer class="site-footer">
-
-    <div class="container footer-grid">
-
-        <div>
-
-            <a href="index.html" class="footer-brand">
-                curva · espacio
-            </a>
-
-            <p>
-                Entrenamiento para cuerpo y mente.
-            </p>
-
-        </div>
-
 
         <div class="footer-links">
-
+            <a href="index.html">Inicio</a>
             <a href="horarios.html">Horarios</a>
-            <a href="registro.html">Registrarme</a>
             <a href="contacto.html">Contacto</a>
-
-        </div>
-
-
-        <div class="footer-social">
-
-            <p>Seguinos</p>
-
-            <a
-                href="https://www.instagram.com/curva.espacio/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                @curva.espacio
+            <a href="https://www.instagram.com/curva.espacio/" target="_blank">
+                Instagram
             </a>
-
         </div>
 
-
-        <div class="footer-instagram image-frame">
-
-            <a
-                href="https://www.instagram.com/curva.espacio/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-
-                <img
-                    src="images/instagram-01.jpg"
-                    alt="Publicación de Instagram de Curva · espacio"
-                >
-
-            </a>
-
+        <div class="footer-dev">
+            <p>Desarrollado por <strong>Bian DevStudio</strong></p>
         </div>
 
-    </div>
+    </footer>
 
 
-    <div class="container footer-bottom">
-
-        <span>
-            © 2026 curva · espacio
-        </span>
-
-        <span>
-            Todos los derechos reservados.
-        </span>
-
-    </div>
-
-</footer>
-
-
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>
