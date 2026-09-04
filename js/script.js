@@ -236,7 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             const formData = new FormData(registrationForm);
-
             const templateParams = {
                 nombre: formData.get("nombre"),
                 apellido: formData.get("apellido"),
@@ -244,10 +243,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 email: formData.get("email"),
                 telefono: formData.get("telefono"),
                 actividad: formData.get("actividad"),
+                frecuencia: formData.get("frecuencia") || "No especificado",
                 horario: formData.get("horario") || "No especificado",
                 mensaje: formData.get("mensaje") || "Sin mensaje"
             };
-
 
             if (submitBtn) {
 
