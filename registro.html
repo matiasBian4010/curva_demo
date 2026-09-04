@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Registrarme · Curva</title>
 
@@ -15,20 +13,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 
-      <!-- SDK de EmailJS: alojado en el propio repo (no en un CDN externo)
+    <!-- SDK de EmailJS: alojado en el propio repo (no en un CDN externo)
          para que ad-blockers y extensiones de privacidad no lo bloqueen -->
-       <script type="text/javascript" src="js/Emailjs.min.js"></script>
+    <script type="text/javascript" src="js/Emailjs.min.js"></script>
 
 </head>
 
@@ -36,38 +29,344 @@
 <body>
 
 
-<header class="site-header">
+    <header class="site-header">
 
-    <nav class="navbar">
+        <nav class="navbar">
 
-        <a
-            href="index.html"
-            class="logo"
-        >
-            Curva
-        </a>
+            <a href="index.html" class="logo">
+                Curva
+            </a>
 
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Abrir menú"
-        >
-            ☰
-        </button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                ☰
+            </button>
 
 
-        <div
-            class="nav-menu"
-            id="navMenu"
-        >
+            <div class="nav-menu" id="navMenu">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="index.html#actividades">
+                    Actividades
+                </a>
+
+                <a href="horarios.html">
+                    Horarios
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+                <a href="registro.html" class="nav-cta active">
+                    Quiero registrarme
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+
+        <section class="registration-page">
+
+            <div class="registration-layout">
+
+
+                <div class="registration-intro">
+
+                    <p class="eyebrow">
+                        PRIMER PASO
+                    </p>
+
+                    <h1>
+                        Quiero<br>
+                        registrarme.
+                    </h1>
+
+                    <p>
+                        Completá tus datos y contanos qué actividad
+                        te interesa. Recibirás la información necesaria
+                        para continuar con tu inscripción.
+                    </p>
+
+                    <div class="registration-info">
+
+                        <strong>
+                            ¿Cómo funciona?
+                        </strong>
+
+                        <p>
+                            Primero completás tus datos.
+                            Luego Curva recibe tu información y
+                            te envía las instrucciones para acceder
+                            al sistema de turnos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="registration-form-wrapper">
+
+                    <form id="registrationForm" class="registration-form">
+
+
+                        <div class="form-section-title">
+                            Tus datos
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-field">
+
+                                <label for="nombre">
+                                    Nombre
+                                </label>
+
+                                <input type="text" id="nombre" name="nombre" required autocomplete="given-name">
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="apellido">
+                                    Apellido
+                                </label>
+
+                                <input type="text" id="apellido" name="apellido" required autocomplete="family-name">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="dni">
+                                DNI
+                            </label>
+
+                            <input type="text" id="dni" name="dni" required inputmode="numeric">
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="email">
+                                Email
+                            </label>
+
+                            <input type="email" id="email" name="email" required autocomplete="email">
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="telefono">
+                                WhatsApp / Teléfono
+                            </label>
+
+                            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="actividad">
+                                ¿Qué actividad te interesa?
+                            </label>
+
+                            <select id="actividad" name="actividad" required>
+
+                                <option value="">
+                                    Seleccioná una actividad
+                                </option>
+
+                                <option value="pilates">
+                                    Pilates
+                                </option>
+
+                                <option value="calistenia">
+                                    Calistenia
+                                </option>
+
+                                <option value="yoga">
+                                    Yoga
+                                </option>
+
+                                <option value="stretching">
+                                    Stretching
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="form-field">
+
+                            <label for="frecuencia">
+                                ¿Cuántas veces por semana?
+                            </label>
+
+                            <select id="frecuencia" name="frecuencia" required>
+
+                                <option value="">
+                                    Seleccioná una frecuencia
+                                </option>
+
+                                <option value="1 vez por semana">
+                                    1 vez por semana
+                                </option>
+
+                                <option value="2 veces por semana">
+                                    2 veces por semana
+                                </option>
+
+                                <option value="3 veces por semana">
+                                    3 veces por semana
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="horario">
+                                ¿Qué horario te interesa?
+                            </label>
+
+                            <select id="horario" name="horario">
+
+                                <option value="">
+                                    Podés indicarlo si ya lo sabés
+                                </option>
+
+                                <option value="manana">
+                                    Mañana
+                                </option>
+
+                                <option value="tarde">
+                                    Tarde
+                                </option>
+
+                                <option value="noche">
+                                    Noche
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="mensaje">
+                                ¿Querés contarnos algo?
+                            </label>
+
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Opcional"></textarea>
+
+                        </div>
+
+
+                        <label class="checkbox-field">
+
+                            <input type="checkbox" id="terminos" required>
+
+                            <span>
+                                Acepto que Curva utilice estos datos
+                                para contactarme sobre mi inscripción.
+                            </span>
+
+                        </label>
+
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Enviar registro
+                        </button>
+
+
+                        <p class="form-disclaimer">
+                            Al enviar tus datos todavía no estás reservando
+                            un turno. El equipo de Curva se pondrá en contacto
+                            para continuar el proceso.
+                        </p>
+
+                    </form>
+
+
+                    <div id="registrationSuccess" class="success-box hidden">
+
+                        <div class="success-icon">
+                            ✓
+                        </div>
+
+                        <h2>
+                            ¡Registro recibido!
+                        </h2>
+
+                        <p>
+                            Tus datos fueron enviados correctamente.
+                            El equipo de Curva se pondrá en contacto
+                            para indicarte cómo continuar.
+                        </p>
+
+                        <a id="whatsappConfirmBtn" href="#" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary btn-full">
+                            Confirmar registro con Curva por WhatsApp
+                        </a>
+
+                        <a href="index.html" class="btn btn-secondary">
+                            Volver al inicio
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-brand">
+
+            <span class="logo">
+                curva
+            </span>
+
+            <p>
+                Entrenamiento para cuerpo y mente.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
 
             <a href="index.html">
                 Inicio
-            </a>
-
-            <a href="index.html#actividades">
-                Actividades
             </a>
 
             <a href="horarios.html">
@@ -78,370 +377,27 @@
                 Contacto
             </a>
 
-            <a
-                href="registro.html"
-                class="nav-cta active"
-            >
-                Quiero registrarme
+            <a href="https://www.instagram.com/curva.espacio/" target="_blank">
+                Instagram
             </a>
 
         </div>
 
-    </nav>
 
-</header>
-
-
-<main>
-
-
-<section class="registration-page">
-
-    <div class="registration-layout">
-
-
-        <div class="registration-intro">
-
-            <p class="eyebrow">
-                PRIMER PASO
-            </p>
-
-            <h1>
-                Quiero<br>
-                registrarme.
-            </h1>
+        <div class="footer-dev">
 
             <p>
-                Completá tus datos y contanos qué actividad
-                te interesa. Recibirás la información necesaria
-                para continuar con tu inscripción.
+                Desarrollado por
+                <strong>Bian DevStudio</strong>
             </p>
 
-            <div class="registration-info">
-
-                <strong>
-                    ¿Cómo funciona?
-                </strong>
-
-                <p>
-                    Primero completás tus datos.
-                    Luego Curva recibe tu información y
-                    te envía las instrucciones para acceder
-                    al sistema de turnos.
-                </p>
-
-            </div>
-
         </div>
 
+    </footer>
 
-        <div class="registration-form-wrapper">
 
-            <form id="registrationForm" class="registration-form">
-
-
-                <div class="form-section-title">
-                    Tus datos
-                </div>
-
-
-                <div class="form-row">
-
-                    <div class="form-field">
-
-                        <label for="nombre">
-                            Nombre
-                        </label>
-
-                        <input
-                            type="text"
-                            id="nombre"
-                            name="nombre"
-                            required
-                            autocomplete="given-name"
-                        >
-
-                    </div>
-
-
-                    <div class="form-field">
-
-                        <label for="apellido">
-                            Apellido
-                        </label>
-
-                        <input
-                            type="text"
-                            id="apellido"
-                            name="apellido"
-                            required
-                            autocomplete="family-name"
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="dni">
-                        DNI
-                    </label>
-
-                    <input
-                        type="text"
-                        id="dni"
-                        name="dni"
-                        required
-                        inputmode="numeric"
-                    >
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="email">
-                        Email
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        autocomplete="email"
-                    >
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="telefono">
-                        WhatsApp / Teléfono
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="telefono"
-                        name="telefono"
-                        required
-                        autocomplete="tel"
-                    >
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="actividad">
-                        ¿Qué actividad te interesa?
-                    </label>
-
-                    <select
-                        id="actividad"
-                        name="actividad"
-                        required
-                    >
-
-                        <option value="">
-                            Seleccioná una actividad
-                        </option>
-
-                        <option value="pilates">
-                            Pilates
-                        </option>
-
-                        <option value="calistenia">
-                            Calistenia
-                        </option>
-
-                        <option value="yoga">
-                            Yoga
-                        </option>
-
-                        <option value="stretching">
-                            Stretching
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="horario">
-                        ¿Qué horario te interesa?
-                    </label>
-
-                    <select
-                        id="horario"
-                        name="horario"
-                    >
-
-                        <option value="">
-                            Podés indicarlo si ya lo sabés
-                        </option>
-
-                        <option value="manana">
-                            Mañana
-                        </option>
-
-                        <option value="tarde">
-                            Tarde
-                        </option>
-
-                        <option value="noche">
-                            Noche
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-field">
-
-                    <label for="mensaje">
-                        ¿Querés contarnos algo?
-                    </label>
-
-                    <textarea
-                        id="mensaje"
-                        name="mensaje"
-                        rows="4"
-                        placeholder="Opcional"
-                    ></textarea>
-
-                </div>
-
-
-                <label class="checkbox-field">
-
-                    <input
-                        type="checkbox"
-                        id="terminos"
-                        required
-                    >
-
-                    <span>
-                        Acepto que Curva utilice estos datos
-                        para contactarme sobre mi inscripción.
-                    </span>
-
-                </label>
-
-
-                <button
-                    type="submit"
-                    class="btn btn-primary btn-full"
-                >
-                    Enviar registro
-                </button>
-
-
-                <p class="form-disclaimer">
-                    Al enviar tus datos todavía no estás reservando
-                    un turno. El equipo de Curva se pondrá en contacto
-                    para continuar el proceso.
-                </p>
-
-            </form>
-
-
-            <div
-                id="registrationSuccess"
-                class="success-box hidden"
-            >
-
-                <div class="success-icon">
-                    ✓
-                </div>
-
-                <h2>
-                    ¡Registro recibido!
-                </h2>
-
-                <p>
-                    Tus datos fueron enviados correctamente.
-                    El equipo de Curva se pondrá en contacto
-                    para indicarte cómo continuar.
-                </p>
-
-                <a
-                    href="index.html"
-                    class="btn btn-secondary"
-                >
-                    Volver al inicio
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-<footer class="site-footer">
-
-    <div class="footer-brand">
-
-        <span class="logo">
-            curva
-        </span>
-
-        <p>
-            Entrenamiento para cuerpo y mente.
-        </p>
-
-    </div>
-
-
-    <div class="footer-links">
-
-        <a href="index.html">
-            Inicio
-        </a>
-
-        <a href="horarios.html">
-            Horarios
-        </a>
-
-        <a href="contacto.html">
-            Contacto
-        </a>
-
-        <a
-            href="https://www.instagram.com/curva.espacio/"
-            target="_blank"
-        >
-            Instagram
-        </a>
-
-    </div>
-
-
-    <div class="footer-dev">
-
-        <p>
-            Desarrollado por
-            <strong>Bian DevStudio</strong>
-        </p>
-
-    </div>
-
-</footer>
-
-
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>

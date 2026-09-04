@@ -264,6 +264,28 @@ document.addEventListener("DOMContentLoaded", () => {
             )
                 .then(() => {
 
+                    const NUMERO_WHATSAPP_CURVA = "5491138007337"; // 11 3800 7337 en formato internacional
+
+                    const mensajeWhatsapp =
+                        `Hola! Soy ${templateParams.nombre} ${templateParams.apellido} ` +
+                        `(DNI ${templateParams.dni}).\n` +
+                        `Me registré para: ${templateParams.actividad}, ` +
+                        `${templateParams.frecuencia}.\n` +
+                        `Horario preferido: ${templateParams.horario}.\n` +
+                        `Mi teléfono: ${templateParams.telefono}.\n` +
+                        `Quisiera coordinar el pago para arrancar.`;
+
+                    const linkWhatsapp =
+                        `https://wa.me/${NUMERO_WHATSAPP_CURVA}?text=${encodeURIComponent(mensajeWhatsapp)}`;
+
+                    const whatsappBtn = document.getElementById("whatsappConfirmBtn");
+
+                    if (whatsappBtn) {
+
+                        whatsappBtn.href = linkWhatsapp;
+
+                    }
+
                     registrationForm.classList.add("hidden");
                     registrationSuccess.classList.remove("hidden");
 
@@ -294,7 +316,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                 });
-
         });
 
     }
