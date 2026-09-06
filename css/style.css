@@ -37,11 +37,9 @@ body {
     font-family: var(--sans);
 
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,.35),
-            transparent 25%
-        ),
+        radial-gradient(circle at 20% 20%,
+            rgba(255, 255, 255, .35),
+            transparent 25%),
         var(--beige);
 
     color: var(--black);
@@ -523,7 +521,7 @@ p {
 
     padding: 18px 20px;
 
-    background: rgba(201,199,184,.95);
+    background: rgba(201, 199, 184, .95);
 
     color: var(--black);
 
@@ -550,10 +548,8 @@ p {
     padding: 60px 22px 25px;
 
 
-    background: linear-gradient(
-        transparent,
-        rgba(0,0,0,.9)
-    );
+    background: linear-gradient(transparent,
+            rgba(0, 0, 0, .9));
 
 }
 
@@ -643,7 +639,7 @@ p {
 }
 
 
-.page-header > p:last-child {
+.page-header>p:last-child {
 
     max-width: 500px;
 
@@ -721,7 +717,7 @@ p {
 
 .schedule-day {
 
-    background: rgba(248,246,240,.35);
+    background: rgba(248, 246, 240, .35);
 
     border-radius: 22px;
 
@@ -821,7 +817,7 @@ p {
 
     padding: 25px;
 
-    background: rgba(248,246,240,.5);
+    background: rgba(248, 246, 240, .5);
 
     border-radius: 20px;
 
@@ -882,7 +878,7 @@ p {
 
 .contact-card {
 
-    background: rgba(248,246,240,.65);
+    background: rgba(248, 246, 240, .65);
 
     border-radius: 25px;
 
@@ -895,7 +891,7 @@ p {
 
     padding: 15px 0;
 
-    border-bottom: 1px solid rgba(26,26,26,.15);
+    border-bottom: 1px solid rgba(26, 26, 26, .15);
 
 }
 
@@ -997,7 +993,7 @@ p {
 }
 
 
-.registration-intro > p {
+.registration-intro>p {
 
     max-width: 440px;
 
@@ -1008,7 +1004,7 @@ p {
 
 .registration-info {
 
-    background: rgba(248,246,240,.5);
+    background: rgba(248, 246, 240, .5);
 
     border-radius: 20px;
 
@@ -1102,7 +1098,7 @@ p {
 .form-field select,
 .form-field textarea {
 
-    border: 1px solid rgba(26,26,26,.15);
+    border: 1px solid rgba(26, 26, 26, .15);
 
     background: white;
 
@@ -1624,6 +1620,165 @@ p {
         flex-direction: column;
 
         gap: 12px;
+
+    }
+
+    /* =========================================================
+   PRECIOS POR SOLAPA
+========================================================= */
+
+    .price-panel {
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .price-panel.hidden {
+
+        display: none;
+
+    }
+
+
+    .price-columns {
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 50px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .price-panel-simple .price-columns {
+
+        justify-content: center;
+
+    }
+
+
+    .price-col {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        min-width: 210px;
+
+    }
+
+
+    .price-col h3 {
+
+        font-family: var(--serif);
+
+        font-size: 20px;
+
+        text-align: center;
+
+    }
+
+
+    .price-pack-titulo {
+
+        font-family: var(--serif);
+
+        font-size: 17px;
+
+        text-align: center;
+
+    }
+
+
+    .price-pack-bloque {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 6px;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .price-row {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 25px;
+
+        font-size: 14px;
+
+    }
+
+
+    .price-row.sin-cargo span:last-child {
+
+        color: var(--green);
+
+        font-weight: 700;
+
+    }
+
+
+    .price-note {
+
+        font-size: 11px;
+
+        opacity: .65;
+
+        text-align: center;
+
+    }
+
+
+    .price-legend {
+
+        text-align: center;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+        color: var(--green);
+
+        margin-top: 18px;
+
+    }
+
+
+    .price-error {
+
+        text-align: center;
+
+        font-size: 13px;
+
+        opacity: .65;
+
+    }
+
+
+    @media (max-width: 700px) {
+
+        .price-columns {
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 25px;
+
+        }
 
     }
 
