@@ -1,14 +1,13 @@
 /* =========================================================
    PRECIOS — lee la Google Sheet publicada como CSV y arma
-   el panel de precios de la solapa de actividad activa,
-   arriba de los horarios. La solapa "Todas" no muestra precios.
+   el acordeón "Ver abonos" con 3 tarjetas (Abonos, Packs,
+   Extras) para la solapa de actividad activa.
 ========================================================= */
 
 // ⚠️ Link de la Sheet publicada (Archivo → Compartir → Publicar en la web → CSV).
 const PRECIOS_CSV_URL =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSVHmonk9GqekWezBD4HwMvTLE0lmxI2nMTGqVhDKaPsEcyMqebjyfrZMHSh4JJL_5qJnGB7S594s16/pub?output=csv";
 
-// Nombre real en la columna "actividad" de la Sheet, por cada filtro de la web.
 const NOMBRE_ACTIVIDAD = {
     pilates: "Pilates",
     calistenia: "Calistenia",
@@ -16,8 +15,6 @@ const NOMBRE_ACTIVIDAD = {
     stretching: "Stretching"
 };
 
-// Qué packs se muestran en la columna derecha de cada solapa.
-// Actividades sin pack (yoga, stretching) quedan con lista vacía.
 const PACKS_POR_ACTIVIDAD = {
     pilates: [
         { actividad: "Pack combinado (Pilates + Calistenia)", titulo: "Packs combinados" }
@@ -30,14 +27,10 @@ const PACKS_POR_ACTIVIDAD = {
     stretching: []
 };
 
-// Datos ya parseados de la Sheet, disponibles para cualquier solapa
-// una vez que termina de cargar (evita pedir el CSV de nuevo en cada click).
 let PRECIOS_DATOS = null;
+let ACORDEON_ABIERTO = false;
 
 
-/**
- * Parser de CSV simple, tolera comas dentro de campos entre comillas.
- */
 function parsearCSV(texto) {
 
     const filas = [];
@@ -107,7 +100,6 @@ function filasAObjetos(filas) {
     for (let i = 1; i < filas.length; i++) {
 
         const fila = filas[i];
-
         if (!fila || fila.length === 0) continue;
 
         datos.push({
@@ -131,69 +123,84 @@ function formatearPrecio(numero) {
 }
 
 
+function esFilaAbono(frecuencia) {
+    return /vez por semana|veces por semana/i.test(frecuencia);
+}
+
+
+function esFilaExtra(frecuencia) {
+    return /clase de prueba|clase suelta/i.test(frecuencia);
+}
+
+
 /**
- * Arma las filas de precio de una actividad puntual (sin envolver en tarjeta).
- * - precio vacío  → la fila no se agrega (se oculta)
- * - precio "0"    → "Sin cargo"
- * - precio numérico → formateado en pesos
+ * Devuelve las filas válidas (con precio cargado) de una actividad,
+ * ya resueltas a texto listo para mostrar ("Sin cargo" o "$X/mes").
  */
-function armarFilas(nombreActividad, datos) {
+function obtenerFilas(nombreActividad, datos, filtroTipo) {
 
-    const items = datos.filter(d => d.actividad === nombreActividad);
-
-    return items
+    return datos
+        .filter(d => d.actividad === nombreActividad)
+        .filter(d => {
+            if (filtroTipo === "abono") return esFilaAbono(d.frecuencia);
+            if (filtroTipo === "extra") return esFilaExtra(d.frecuencia);
+            return true; // packs: todas las filas de esa actividad-pack
+        })
         .map(item => {
 
-            if (item.precio === "") return "";
+            if (item.precio === "") return null;
 
             const precioNumero = Number(item.precio);
+            if (Number.isNaN(precioNumero)) return null;
 
-            if (Number.isNaN(precioNumero)) return "";
+            const sinCargo = precioNumero === 0;
+            const sufijo = filtroTipo === "abono" ? "/mes" : "";
 
-            const valorMostrado =
-                precioNumero === 0 ? "Sin cargo" : formatearPrecio(precioNumero) + "/mes";
-
-            const claseExtra = precioNumero === 0 ? " sin-cargo" : "";
-
-            return `
-                <div class="price-row${claseExtra}">
-                    <span>${item.frecuencia}</span>
-                    <span>${valorMostrado}</span>
-                </div>
-            `;
+            return {
+                frecuencia: item.frecuencia,
+                valor: sinCargo ? "Sin cargo" : formatearPrecio(precioNumero) + sufijo,
+                sinCargo,
+                nota: item.nota
+            };
 
         })
-        .filter(html => html !== "")
+        .filter(item => item !== null);
+
+}
+
+
+function armarFilasHTML(items) {
+
+    return items
+        .map(item => `
+            <div class="price-row${item.sinCargo ? " sin-cargo" : ""}">
+                <span>${item.frecuencia}</span>
+                <span>${item.valor}</span>
+            </div>
+        `)
         .join("");
 
 }
 
 
-function buscarNota(nombreActividad, datos) {
-
-    const fila = datos.find(d => d.actividad === nombreActividad && d.nota !== "");
-    return fila ? fila.nota : "";
-
+function primeraNota(items) {
+    const conNota = items.find(i => i.nota !== "");
+    return conNota ? conNota.nota : "";
 }
 
 
 /**
- * Columna izquierda: abonos de la actividad seleccionada.
+ * Tarjeta 1: abonos principales (1x/2x/3x) de la actividad.
  */
-function armarColumnaAbonos(filtro, datos) {
+function armarTarjetaAbonos(nombre, datos) {
 
-    const nombre = NOMBRE_ACTIVIDAD[filtro];
-    const filasHTML = armarFilas(nombre, datos);
-
-    if (filasHTML === "") return "";
-
-    const nota = buscarNota(nombre, datos);
+    const items = obtenerFilas(nombre, datos, "abono");
+    if (items.length === 0) return "";
 
     return `
-        <div class="price-col">
-            <h3>Abonos ${nombre}</h3>
-            ${filasHTML}
-            ${nota ? `<p class="price-note">${nota}</p>` : ""}
+        <div class="price-card">
+            <h4>Abonos ${nombre}</h4>
+            ${armarFilasHTML(items)}
         </div>
     `;
 
@@ -201,26 +208,22 @@ function armarColumnaAbonos(filtro, datos) {
 
 
 /**
- * Columna derecha: uno o dos bloques de packs, según la actividad.
- * Si la actividad no tiene packs asociados, devuelve "" (no se arma columna).
+ * Tarjeta 2: packs asociados a la actividad (si tiene).
  */
-function armarColumnaPacks(filtro, datos) {
+function armarTarjetaPacks(filtro, datos) {
 
     const grupos = PACKS_POR_ACTIVIDAD[filtro] || [];
 
     const bloques = grupos
         .map(grupo => {
 
-            const filasHTML = armarFilas(grupo.actividad, datos);
-            if (filasHTML === "") return "";
-
-            const nota = buscarNota(grupo.actividad, datos);
+            const items = obtenerFilas(grupo.actividad, datos, "todas");
+            if (items.length === 0) return "";
 
             return `
                 <div class="price-pack-bloque">
                     <p class="price-pack-titulo">${grupo.titulo}</p>
-                    ${filasHTML}
-                    ${nota ? `<p class="price-note">${nota}</p>` : ""}
+                    ${armarFilasHTML(items)}
                 </div>
             `;
 
@@ -230,14 +233,35 @@ function armarColumnaPacks(filtro, datos) {
 
     if (bloques === "") return "";
 
-    return `<div class="price-col">${bloques}</div>`;
+    return `<div class="price-card">${bloques}</div>`;
 
 }
 
 
 /**
- * Leyenda del descuento en efectivo (aplica a cualquier actividad).
+ * Tarjeta 3: extras (clase de prueba / clase suelta) + descuento en efectivo.
  */
+function armarTarjetaExtras(nombre, datos) {
+
+    const items = obtenerFilas(nombre, datos, "extra");
+    const filasHTML = armarFilasHTML(items);
+    const nota = primeraNota(items);
+    const leyenda = armarLeyendaDescuento(datos);
+
+    if (filasHTML === "" && leyenda === "") return "";
+
+    return `
+        <div class="price-card">
+            <h4>Extras</h4>
+            ${filasHTML}
+            ${nota ? `<p class="price-note">${nota}</p>` : ""}
+            ${leyenda}
+        </div>
+    `;
+
+}
+
+
 function armarLeyendaDescuento(datos) {
 
     const fila = datos.find(
@@ -249,47 +273,76 @@ function armarLeyendaDescuento(datos) {
     const porcentaje = Number(fila.precio);
     if (Number.isNaN(porcentaje) || porcentaje === 0) return "";
 
-    return `<p class="price-legend">${porcentaje}% OFF pagando en efectivo</p>`;
+    return `<p class="price-legend">${porcentaje}% OFF en efectivo</p>`;
 
 }
 
 
-/**
- * Arma y muestra el panel completo para la solapa activa.
- * "all" (Todas) oculta el panel por completo.
- */
+function armarTresTarjetas(filtro, datos) {
+
+    const nombre = NOMBRE_ACTIVIDAD[filtro];
+
+    const tarjetaAbonos = armarTarjetaAbonos(nombre, datos);
+
+    // Sin abonos cargados para esta actividad, no mostramos el acordeón
+    // (aunque exista descuento general, mostrar solo eso sería confuso).
+    if (tarjetaAbonos === "") return "";
+
+    const tarjetas = [
+        tarjetaAbonos,
+        armarTarjetaPacks(filtro, datos),
+        armarTarjetaExtras(nombre, datos)
+    ].filter(html => html !== "");
+
+    return tarjetas.join("");
+
+}
+
+
 function actualizarPanelPrecios(filtro) {
 
     const panel = document.getElementById("pricePanel");
-    if (!panel) return;
+    const boton = document.getElementById("verAbonosBtn");
+    const cards = document.getElementById("priceCards");
 
+    if (!panel || !boton || !cards) return;
+
+    // "Todas" no muestra nada
     if (filtro === "all" || !PRECIOS_DATOS) {
-        panel.innerHTML = "";
         panel.classList.add("hidden");
         return;
     }
 
-    const columnaAbonos = armarColumnaAbonos(filtro, PRECIOS_DATOS);
-    const columnaPacks = armarColumnaPacks(filtro, PRECIOS_DATOS);
-    const leyenda = armarLeyendaDescuento(PRECIOS_DATOS);
+    const tarjetasHTML = armarTresTarjetas(filtro, PRECIOS_DATOS);
 
-    if (columnaAbonos === "") {
-        panel.innerHTML = "";
+    if (tarjetasHTML === "") {
         panel.classList.add("hidden");
         return;
     }
 
     panel.classList.remove("hidden");
-    panel.classList.toggle("price-panel-doble", columnaPacks !== "");
-    panel.classList.toggle("price-panel-simple", columnaPacks === "");
+    cards.innerHTML = tarjetasHTML;
 
-    panel.innerHTML = `
-        <div class="price-columns">
-            ${columnaAbonos}
-            ${columnaPacks}
-        </div>
-        ${leyenda}
-    `;
+    // al cambiar de solapa, el acordeón vuelve a su estado cerrado
+    ACORDEON_ABIERTO = false;
+    cards.classList.add("hidden");
+    boton.innerHTML = '<span class="accordion-arrow">↓</span> Ver abonos';
+
+}
+
+
+function alternarAcordeon() {
+
+    const cards = document.getElementById("priceCards");
+    const boton = document.getElementById("verAbonosBtn");
+    if (!cards || !boton) return;
+
+    ACORDEON_ABIERTO = !ACORDEON_ABIERTO;
+
+    cards.classList.toggle("hidden", !ACORDEON_ABIERTO);
+    boton.innerHTML = ACORDEON_ABIERTO
+        ? '<span class="accordion-arrow">↑</span> Ver abonos'
+        : '<span class="accordion-arrow">↓</span> Ver abonos';
 
 }
 
@@ -302,14 +355,10 @@ async function cargarPrecios() {
     try {
 
         const respuesta = await fetch(PRECIOS_CSV_URL);
-
-        if (!respuesta.ok) {
-            throw new Error("No se pudo obtener la planilla de precios");
-        }
+        if (!respuesta.ok) throw new Error("No se pudo obtener la planilla de precios");
 
         const texto = await respuesta.text();
-        const filas = parsearCSV(texto);
-        PRECIOS_DATOS = filasAObjetos(filas);
+        PRECIOS_DATOS = filasAObjetos(parsearCSV(texto));
 
         const botonActivo = document.querySelector(".filter-btn.active");
         const filtroActivo = botonActivo ? botonActivo.dataset.filter : "all";
@@ -318,21 +367,33 @@ async function cargarPrecios() {
     } catch (error) {
 
         console.error("Error al cargar precios:", error);
-        panel.innerHTML = '<p class="price-error">No pudimos cargar los precios. Escribinos por WhatsApp para consultar valores.</p>';
         panel.classList.remove("hidden");
+        const cards = document.getElementById("priceCards");
+        if (cards) {
+            cards.classList.remove("hidden");
+            cards.innerHTML = '<p class="price-error">No pudimos cargar los precios. Escribinos por WhatsApp para consultar valores.</p>';
+        }
 
     }
 
 }
 
 
-// Se expone en window para que script.js la llame cuando cambia la solapa activa.
-// En script.js, dentro del click de .filter-btn, agregar después de
-// button.classList.add("active"):
-//
-//     if (window.actualizarPanelPrecios) {
-//         window.actualizarPanelPrecios(filter);
-//     }
-window.actualizarPanelPrecios = actualizarPanelPrecios;
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", cargarPrecios);
+    cargarPrecios();
+
+    // Escucha los clicks de las solapas DIRECTO acá, sin depender de script.js.
+    // Así el panel de precios nunca puede quedar "pegado" en una actividad vieja.
+    document.querySelectorAll(".filter-btn").forEach(boton => {
+        boton.addEventListener("click", () => {
+            actualizarPanelPrecios(boton.dataset.filter);
+        });
+    });
+
+    const verAbonosBtn = document.getElementById("verAbonosBtn");
+    if (verAbonosBtn) {
+        verAbonosBtn.addEventListener("click", alternarAcordeon);
+    }
+
+});

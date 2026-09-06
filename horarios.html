@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
     <meta charset="UTF-8">
@@ -15,423 +14,32 @@
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
 
 </head>
 
 <body>
 
-    <header class="site-header">
+<header class="site-header">
 
-        <nav class="navbar">
+    <nav class="navbar">
 
-            <a href="index.html" class="logo">Curva</a>
+        <a href="index.html" class="logo">Curva</a>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-                ☰
-            </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            ☰
+        </button>
 
-            <div class="nav-menu" id="navMenu">
+        <div class="nav-menu" id="navMenu">
 
-                <a href="index.html">Inicio</a>
+            <a href="index.html">Inicio</a>
 
-                <a href="index.html#actividades">
-                    Actividades
-                </a>
-
-                <a href="horarios.html" class="active">
-                    Horarios y precios
-                </a>
-
-                <a href="contacto.html">
-                    Contacto
-                </a>
-
-                <a href="registro.html" class="nav-cta">
-                    Quiero registrarme
-                </a>
-
-            </div>
-
-        </nav>
-
-    </header>
-
-
-    <main>
-
-        <section class="page-header">
-
-            <p class="eyebrow">CURVA · ESPACIO</p>
-
-            <h1>Horarios y precios</h1>
-
-            <p>
-                Encontrá la actividad, el valor y el horario que mejor se adapte a vos.
-            </p>
-
-        </section>
-
-
-        <section class="schedule-section">
-
-            <!-- FILTRO -->
-
-            <div class="schedule-filters">
-
-                <button class="filter-btn" data-filter="pilates">
-                    Pilates
-                </button>
-
-                <button class="filter-btn" data-filter="calistenia">
-                    Calistenia
-                </button>
-
-                <button class="filter-btn" data-filter="yoga">
-                    Yoga
-                </button>
-
-                <button class="filter-btn" data-filter="stretching">
-                    Stretching
-                </button>
-
-                <button class="filter-btn active" data-filter="all">
-                    Todas
-                </button>
-
-            </div>
-
-
-            <!-- PRECIOS de la solapa activa (se ocultan solos en "Todas") -->
-
-            <div id="pricePanel" class="price-panel hidden"></div>
-
-
-            <!-- HORARIOS -->
-
-            <div class="schedule-grid">
-
-                <!-- LUNES -->
-
-                <div class="schedule-day">
-
-                    <div class="day-name">
-                        Lunes
-                    </div>
-
-                    <div class="day-content">
-
-                        <div class="schedule-item" data-activity="pilates">
-                            <span class="activity-name">
-                                Pilates
-                            </span>
-
-                            <span class="time">
-                                7:45 · 8:45 · 9:45
-                            </span>
-
-                            <span class="time">
-                                16:30 · 17:30 · 18:30 · 19:30
-                            </span>
-                        </div>
-
-
-                        <div class="schedule-item" data-activity="stretching">
-
-                            <span class="activity-name">
-                                Stretching
-                            </span>
-
-                            <span class="time">
-                                15:30
-                            </span>
-
-                        </div>
-
-
-                        <div class="schedule-item" data-activity="calistenia">
-
-                            <span class="activity-name">
-                                Calistenia
-                            </span>
-
-                            <span class="time">
-                                18:00 · 19:00
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MARTES -->
-
-                <div class="schedule-day">
-
-                    <div class="day-name">
-                        Martes
-                    </div>
-
-                    <div class="day-content">
-
-                        <div class="schedule-item" data-activity="pilates">
-
-                            <span class="activity-name">
-                                Pilates
-                            </span>
-
-                            <span class="time">
-                                9:00 · 10:00 · 11:00
-                            </span>
-
-                            <span class="time">
-                                16:30 · 17:30 · 18:30
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MIÉRCOLES -->
-
-                <div class="schedule-day">
-
-                    <div class="day-name">
-                        Miércoles
-                    </div>
-
-                    <div class="day-content">
-
-                        <div class="schedule-item" data-activity="pilates">
-
-                            <span class="activity-name">
-                                Pilates
-                            </span>
-
-                            <span class="time">
-                                7:45 · 8:45 · 9:45
-                            </span>
-
-                            <span class="time">
-                                16:30 · 17:30 · 18:30 · 19:30
-                            </span>
-
-                        </div>
-
-
-                        <div class="schedule-item" data-activity="stretching">
-
-                            <span class="activity-name">
-                                Stretching
-                            </span>
-
-                            <span class="time">
-                                15:30
-                            </span>
-
-                        </div>
-
-
-                        <div class="schedule-item" data-activity="yoga">
-
-                            <span class="activity-name">
-                                Yoga
-                            </span>
-
-                            <span class="time">
-                                18:00
-                            </span>
-
-                        </div>
-
-
-                        <div class="schedule-item" data-activity="calistenia">
-
-                            <span class="activity-name">
-                                Calistenia
-                            </span>
-
-                            <span class="time">
-                                18:00 · 19:00
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- JUEVES -->
-
-                <div class="schedule-day">
-
-                    <div class="day-name">
-                        Jueves
-                    </div>
-
-                    <div class="day-content">
-
-                        <div class="schedule-item" data-activity="pilates">
-
-                            <span class="activity-name">
-                                Pilates
-                            </span>
-
-                            <span class="time">
-                                9:00 · 10:00 · 11:00
-                            </span>
-
-                            <span class="time">
-                                16:30 · 17:30 · 18:30
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- VIERNES -->
-
-                <div class="schedule-day">
-
-                    <div class="day-name">
-                        Viernes
-                    </div>
-
-                    <div class="day-content">
-
-                        <div class="schedule-item" data-activity="pilates">
-
-                            <span class="activity-name">
-                                Pilates
-                            </span>
-
-                            <span class="time">
-                                7:45 · 8:45 · 9:45
-                            </span>
-
-                            <span class="time">
-                                16:30 · 17:30 · 18:30 · 19:30
-                            </span>
-
-                        </div>
-
-
-                        <div class="schedule-item" data-activity="calistenia">
-
-                            <span class="activity-name">
-                                Calistenia
-                            </span>
-
-                            <span class="time">
-                                18:00 · 19:00
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- SÁBADO -->
-
-                <div class="schedule-day">
-
-                    <div class="day-name">
-                        Sábado
-                    </div>
-
-                    <div class="day-content">
-
-                        <div class="schedule-item" data-activity="pilates">
-
-                            <span class="activity-name">
-                                Pilates
-                            </span>
-
-                            <span class="time">
-                                8:00 · 9:00 · 10:00
-                            </span>
-
-                        </div>
-
-
-                        <div class="schedule-item" data-activity="yoga">
-
-                            <span class="activity-name">
-                                Yoga
-                            </span>
-
-                            <span class="time">
-                                8:00
-                            </span>
-
-                        </div>
-
-
-                        <div class="schedule-item" data-activity="calistenia">
-
-                            <span class="activity-name">
-                                Calistenia
-                            </span>
-
-                            <span class="time">
-                                8:30 · 9:30
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="schedule-note">
-
-            <p>
-                Los horarios pueden estar sujetos a modificaciones.
-                Para reservar tu lugar, escribinos por WhatsApp o completá el formulario de registro.
-            </p>
-
-        </section>
-
-
-    </main>
-
-
-    <footer class="site-footer">
-
-        <div class="footer-brand">
-
-            <span class="logo">curva</span>
-
-            <p>
-                Entrenamiento para cuerpo y mente.
-            </p>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <a href="index.html">
-                Inicio
+            <a href="index.html#actividades">
+                Actividades
             </a>
 
-            <a href="horarios.html">
+            <a href="horarios.html" class="active">
                 Horarios y precios
             </a>
 
@@ -439,28 +47,430 @@
                 Contacto
             </a>
 
-            <a href="https://www.instagram.com/curva.espacio/" target="_blank">
-                Instagram
+            <a href="registro.html" class="nav-cta">
+                Quiero registrarme
             </a>
 
         </div>
 
+    </nav>
 
-        <div class="footer-dev">
+</header>
 
-            <p>
-                Desarrollado por
-                <strong>Bian DevStudio</strong>
-            </p>
+
+<main>
+
+<section class="page-header">
+
+    <p class="eyebrow">CURVA · ESPACIO</p>
+
+    <h1>Horarios y precios</h1>
+
+    <p>
+        Encontrá la actividad, el valor y el horario que mejor se adapte a vos.
+    </p>
+
+</section>
+
+
+<section class="schedule-section">
+
+    <!-- FILTRO -->
+
+    <div class="schedule-filters">
+
+        <button class="filter-btn" data-filter="pilates">
+            Pilates
+        </button>
+
+        <button class="filter-btn" data-filter="calistenia">
+            Calistenia
+        </button>
+
+        <button class="filter-btn" data-filter="yoga">
+            Yoga
+        </button>
+
+        <button class="filter-btn" data-filter="stretching">
+            Stretching
+        </button>
+
+        <button class="filter-btn active" data-filter="all">
+            Todas
+        </button>
+
+    </div>
+
+
+    <!-- PRECIOS de la solapa activa (acordeón "Ver abonos") -->
+
+    <div id="pricePanel" class="price-panel hidden">
+
+        <button id="verAbonosBtn" class="accordion-toggle" type="button">
+            <span class="accordion-arrow">↓</span> Ver abonos
+        </button>
+
+        <div id="priceCards" class="price-cards hidden"></div>
+
+    </div>
+
+
+    <!-- HORARIOS -->
+
+    <div class="schedule-grid">
+
+        <!-- LUNES -->
+
+        <div class="schedule-day">
+
+            <div class="day-name">
+                Lunes
+            </div>
+
+            <div class="day-content">
+
+                <div class="schedule-item" data-activity="pilates">
+                    <span class="activity-name">
+                        Pilates
+                    </span>
+
+                    <span class="time">
+                        7:45 · 8:45 · 9:45
+                    </span>
+
+                    <span class="time">
+                        16:30 · 17:30 · 18:30 · 19:30
+                    </span>
+                </div>
+
+
+                <div class="schedule-item" data-activity="stretching">
+
+                    <span class="activity-name">
+                        Stretching
+                    </span>
+
+                    <span class="time">
+                        15:30
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-item" data-activity="calistenia">
+
+                    <span class="activity-name">
+                        Calistenia
+                    </span>
+
+                    <span class="time">
+                        18:00 · 19:00
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </footer>
+
+        <!-- MARTES -->
+
+        <div class="schedule-day">
+
+            <div class="day-name">
+                Martes
+            </div>
+
+            <div class="day-content">
+
+                <div class="schedule-item" data-activity="pilates">
+
+                    <span class="activity-name">
+                        Pilates
+                    </span>
+
+                    <span class="time">
+                        9:00 · 10:00 · 11:00
+                    </span>
+
+                    <span class="time">
+                        16:30 · 17:30 · 18:30
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
 
 
-    <script src="js/script.js"></script>
-    <script src="js/precios.js"></script>
+        <!-- MIÉRCOLES -->
+
+        <div class="schedule-day">
+
+            <div class="day-name">
+                Miércoles
+            </div>
+
+            <div class="day-content">
+
+                <div class="schedule-item" data-activity="pilates">
+
+                    <span class="activity-name">
+                        Pilates
+                    </span>
+
+                    <span class="time">
+                        7:45 · 8:45 · 9:45
+                    </span>
+
+                    <span class="time">
+                        16:30 · 17:30 · 18:30 · 19:30
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-item" data-activity="stretching">
+
+                    <span class="activity-name">
+                        Stretching
+                    </span>
+
+                    <span class="time">
+                        15:30
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-item" data-activity="yoga">
+
+                    <span class="activity-name">
+                        Yoga
+                    </span>
+
+                    <span class="time">
+                        18:00
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-item" data-activity="calistenia">
+
+                    <span class="activity-name">
+                        Calistenia
+                    </span>
+
+                    <span class="time">
+                        18:00 · 19:00
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- JUEVES -->
+
+        <div class="schedule-day">
+
+            <div class="day-name">
+                Jueves
+            </div>
+
+            <div class="day-content">
+
+                <div class="schedule-item" data-activity="pilates">
+
+                    <span class="activity-name">
+                        Pilates
+                    </span>
+
+                    <span class="time">
+                        9:00 · 10:00 · 11:00
+                    </span>
+
+                    <span class="time">
+                        16:30 · 17:30 · 18:30
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIERNES -->
+
+        <div class="schedule-day">
+
+            <div class="day-name">
+                Viernes
+            </div>
+
+            <div class="day-content">
+
+                <div class="schedule-item" data-activity="pilates">
+
+                    <span class="activity-name">
+                        Pilates
+                    </span>
+
+                    <span class="time">
+                        7:45 · 8:45 · 9:45
+                    </span>
+
+                    <span class="time">
+                        16:30 · 17:30 · 18:30 · 19:30
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-item" data-activity="calistenia">
+
+                    <span class="activity-name">
+                        Calistenia
+                    </span>
+
+                    <span class="time">
+                        18:00 · 19:00
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SÁBADO -->
+
+        <div class="schedule-day">
+
+            <div class="day-name">
+                Sábado
+            </div>
+
+            <div class="day-content">
+
+                <div class="schedule-item" data-activity="pilates">
+
+                    <span class="activity-name">
+                        Pilates
+                    </span>
+
+                    <span class="time">
+                        8:00 · 9:00 · 10:00
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-item" data-activity="yoga">
+
+                    <span class="activity-name">
+                        Yoga
+                    </span>
+
+                    <span class="time">
+                        8:00
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-item" data-activity="calistenia">
+
+                    <span class="activity-name">
+                        Calistenia
+                    </span>
+
+                    <span class="time">
+                        8:30 · 9:30
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="schedule-note">
+
+    <p>
+        Los horarios pueden estar sujetos a modificaciones.
+        Para reservar tu lugar, escribinos por WhatsApp o completá el formulario de registro.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="footer-brand">
+
+        <span class="logo">curva</span>
+
+        <p>
+            Entrenamiento para cuerpo y mente.
+        </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            Inicio
+        </a>
+
+        <a href="horarios.html">
+            Horarios y precios
+        </a>
+
+        <a href="contacto.html">
+            Contacto
+        </a>
+
+        <a
+            href="https://www.instagram.com/curva.espacio/"
+            target="_blank"
+        >
+            Instagram
+        </a>
+
+    </div>
+
+
+    <div class="footer-dev">
+
+        <p>
+            Desarrollado por
+            <strong>Bian DevStudio</strong>
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+<script src="js/precios.js"></script>
 
 </body>
-
 </html>

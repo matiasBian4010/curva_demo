@@ -1782,4 +1782,230 @@ p {
 
     }
 
+    /* =========================================================
+   PRECIOS — ACORDEÓN "VER ABONOS"
+========================================================= */
+
+    .price-panel {
+
+        text-align: center;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .price-panel.hidden {
+
+        display: none;
+
+    }
+
+
+    .accordion-toggle {
+
+        background: var(--green);
+
+        color: white;
+
+        border: none;
+
+        border-radius: 40px;
+
+        padding: 13px 26px;
+
+        font-family: var(--sans);
+
+        font-size: 14px;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+    }
+
+
+    .accordion-toggle:hover {
+
+        opacity: .9;
+
+    }
+
+
+    .accordion-arrow {
+
+        font-size: 14px;
+
+    }
+
+
+    .price-cards {
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 16px;
+
+        flex-wrap: wrap;
+
+        margin-top: 18px;
+
+        text-align: left;
+
+    }
+
+
+    .price-cards.hidden {
+
+        display: none;
+
+    }
+
+
+    .price-card {
+
+        background: rgba(248, 246, 240, .6);
+
+        border-radius: 18px;
+
+        padding: 18px 20px;
+
+        min-width: 210px;
+
+        flex: 1 1 210px;
+
+        max-width: 260px;
+
+    }
+
+
+    .price-card h4 {
+
+        font-family: var(--serif);
+
+        font-size: 17px;
+
+        text-align: center;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .price-pack-titulo {
+
+        font-family: var(--serif);
+
+        font-size: 15px;
+
+        text-align: center;
+
+        margin-bottom: 4px;
+
+    }
+
+
+    .price-pack-bloque {
+
+        margin-bottom: 12px;
+
+    }
+
+
+    .price-pack-bloque:last-child {
+
+        margin-bottom: 0;
+
+    }
+
+
+    .price-row {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 15px;
+
+        font-size: 13px;
+
+        padding: 4px 0;
+
+    }
+
+
+    .price-row.sin-cargo span:last-child {
+
+        color: var(--green);
+
+        font-weight: 700;
+
+    }
+
+
+    .price-note {
+
+        font-size: 11px;
+
+        opacity: .65;
+
+        text-align: center;
+
+        margin-top: 6px;
+
+    }
+
+
+    .price-legend {
+
+        text-align: center;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+        color: var(--green);
+
+        margin-top: 10px;
+
+    }
+
+
+    .price-error {
+
+        text-align: center;
+
+        font-size: 13px;
+
+        opacity: .65;
+
+    }
+
+
+    @media (max-width: 700px) {
+
+        .price-cards {
+
+            flex-direction: column;
+
+            align-items: stretch;
+
+        }
+
+
+        .price-card {
+
+            max-width: none;
+
+        }
+
+    }
+
 }
