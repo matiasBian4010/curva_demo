@@ -1623,388 +1623,230 @@ p {
 
     }
 
-    /* =========================================================
-   PRECIOS POR SOLAPA
-========================================================= */
+}
 
-    .price-panel {
 
-        margin-bottom: 25px;
-
-    }
-
-
-    .price-panel.hidden {
-
-        display: none;
-
-    }
-
-
-    .price-columns {
-
-        display: flex;
-
-        justify-content: center;
-
-        gap: 50px;
-
-        flex-wrap: wrap;
-
-    }
-
-
-    .price-panel-simple .price-columns {
-
-        justify-content: center;
-
-    }
-
-
-    .price-col {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 12px;
-
-        min-width: 210px;
-
-    }
-
-
-    .price-col h3 {
-
-        font-family: var(--serif);
-
-        font-size: 20px;
-
-        text-align: center;
-
-    }
-
-
-    .price-pack-titulo {
-
-        font-family: var(--serif);
-
-        font-size: 17px;
-
-        text-align: center;
-
-    }
-
-
-    .price-pack-bloque {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 6px;
-
-        margin-bottom: 8px;
-
-    }
-
-
-    .price-row {
-
-        display: flex;
-
-        justify-content: space-between;
-
-        gap: 25px;
-
-        font-size: 14px;
-
-    }
-
-
-    .price-row.sin-cargo span:last-child {
-
-        color: var(--green);
-
-        font-weight: 700;
-
-    }
-
-
-    .price-note {
-
-        font-size: 11px;
-
-        opacity: .65;
-
-        text-align: center;
-
-    }
-
-
-    .price-legend {
-
-        text-align: center;
-
-        font-size: 13px;
-
-        font-weight: 700;
-
-        color: var(--green);
-
-        margin-top: 18px;
-
-    }
-
-
-    .price-error {
-
-        text-align: center;
-
-        font-size: 13px;
-
-        opacity: .65;
-
-    }
-
-
-    @media (max-width: 700px) {
-
-        .price-columns {
-
-            flex-direction: column;
-
-            align-items: center;
-
-            gap: 25px;
-
-        }
-
-    }
-
-    /* =========================================================
+/* =========================================================
    PRECIOS — ACORDEÓN "VER ABONOS"
 ========================================================= */
 
-    .price-panel {
+.price-panel {
 
-        text-align: center;
+    text-align: center;
 
-        margin-bottom: 25px;
+    margin-bottom: 25px;
 
-    }
-
-
-    .price-panel.hidden {
-
-        display: none;
-
-    }
+}
 
 
-    .accordion-toggle {
+.price-panel.hidden {
 
-        background: var(--green);
+    display: none;
 
-        color: white;
-
-        border: none;
-
-        border-radius: 40px;
-
-        padding: 13px 26px;
-
-        font-family: var(--sans);
-
-        font-size: 14px;
-
-        font-weight: 700;
-
-        cursor: pointer;
-
-        display: inline-flex;
-
-        align-items: center;
-
-        gap: 8px;
-
-    }
+}
 
 
-    .accordion-toggle:hover {
+.accordion-toggle {
 
-        opacity: .9;
+    background: var(--green);
 
-    }
+    color: white;
+
+    border: none;
+
+    border-radius: 40px;
+
+    padding: 13px 26px;
+
+    font-family: var(--sans);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
 
 
-    .accordion-arrow {
+.accordion-toggle:hover {
 
-        font-size: 14px;
+    opacity: .9;
 
-    }
+}
 
+
+.accordion-arrow {
+
+    font-size: 14px;
+
+}
+
+
+.price-cards {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+
+    margin-top: 18px;
+
+    text-align: left;
+
+}
+
+
+.price-cards.hidden {
+
+    display: none;
+
+}
+
+
+.price-card {
+
+    background: rgba(248, 246, 240, .6);
+
+    border-radius: 18px;
+
+    padding: 18px 20px;
+
+    min-width: 210px;
+
+    flex: 1 1 210px;
+
+    max-width: 260px;
+
+}
+
+
+.price-card h4 {
+
+    font-family: var(--serif);
+
+    font-size: 17px;
+
+    text-align: center;
+
+    margin-bottom: 10px;
+
+}
+
+
+.price-pack-titulo {
+
+    font-family: var(--serif);
+
+    font-size: 15px;
+
+    text-align: center;
+
+    margin-bottom: 4px;
+
+}
+
+
+.price-pack-bloque {
+
+    margin-bottom: 12px;
+
+}
+
+
+.price-pack-bloque:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.price-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    font-size: 13px;
+
+    padding: 4px 0;
+
+}
+
+
+.price-row.sin-cargo span:last-child {
+
+    color: var(--green);
+
+    font-weight: 700;
+
+}
+
+
+.price-note {
+
+    font-size: 11px;
+
+    opacity: .65;
+
+    text-align: center;
+
+    margin-top: 6px;
+
+}
+
+
+.price-legend {
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: var(--green);
+
+    margin-top: 10px;
+
+}
+
+
+.price-error {
+
+    text-align: center;
+
+    font-size: 13px;
+
+    opacity: .65;
+
+}
+
+
+@media (max-width: 700px) {
 
     .price-cards {
 
-        display: flex;
+        flex-direction: column;
 
-        justify-content: center;
-
-        gap: 16px;
-
-        flex-wrap: wrap;
-
-        margin-top: 18px;
-
-        text-align: left;
-
-    }
-
-
-    .price-cards.hidden {
-
-        display: none;
+        align-items: stretch;
 
     }
 
 
     .price-card {
 
-        background: rgba(248, 246, 240, .6);
-
-        border-radius: 18px;
-
-        padding: 18px 20px;
-
-        min-width: 210px;
-
-        flex: 1 1 210px;
-
-        max-width: 260px;
-
-    }
-
-
-    .price-card h4 {
-
-        font-family: var(--serif);
-
-        font-size: 17px;
-
-        text-align: center;
-
-        margin-bottom: 10px;
-
-    }
-
-
-    .price-pack-titulo {
-
-        font-family: var(--serif);
-
-        font-size: 15px;
-
-        text-align: center;
-
-        margin-bottom: 4px;
-
-    }
-
-
-    .price-pack-bloque {
-
-        margin-bottom: 12px;
-
-    }
-
-
-    .price-pack-bloque:last-child {
-
-        margin-bottom: 0;
-
-    }
-
-
-    .price-row {
-
-        display: flex;
-
-        justify-content: space-between;
-
-        gap: 15px;
-
-        font-size: 13px;
-
-        padding: 4px 0;
-
-    }
-
-
-    .price-row.sin-cargo span:last-child {
-
-        color: var(--green);
-
-        font-weight: 700;
-
-    }
-
-
-    .price-note {
-
-        font-size: 11px;
-
-        opacity: .65;
-
-        text-align: center;
-
-        margin-top: 6px;
-
-    }
-
-
-    .price-legend {
-
-        text-align: center;
-
-        font-size: 13px;
-
-        font-weight: 700;
-
-        color: var(--green);
-
-        margin-top: 10px;
-
-    }
-
-
-    .price-error {
-
-        text-align: center;
-
-        font-size: 13px;
-
-        opacity: .65;
-
-    }
-
-
-    @media (max-width: 700px) {
-
-        .price-cards {
-
-            flex-direction: column;
-
-            align-items: stretch;
-
-        }
-
-
-        .price-card {
-
-            max-width: none;
-
-        }
+        max-width: none;
 
     }
 
