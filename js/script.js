@@ -2,9 +2,9 @@
    CONFIGURACIÓN DE EMAILJS
 ========================================================= */
 
-const EMAILJS_PUBLIC_KEY = "kgPw6kM3Wj3gOPyA7";
-const EMAILJS_SERVICE_ID = "service_fogvg9d";
-const EMAILJS_TEMPLATE_ID = "template_byi3i6z";
+const EMAILJS_PUBLIC_KEY = "BZK6r7V1fdLSdnBG9";
+const EMAILJS_SERVICE_ID = "service_zwuowao";
+const EMAILJS_TEMPLATE_ID = "template_8mjblih";
 
 
 document.addEventListener("DOMContentLoaded", () => {
