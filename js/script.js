@@ -16,6 +16,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+       /* =====================================================
+       BOTÓN FLOTANTE DE WHATSAPP (aparece al scrollear)
+    ===================================================== */
+
+    const whatsappFloat = document.getElementById("whatsappFloat");
+
+    if (whatsappFloat) {
+
+        const mostrarSiCorresponde = () => {
+            if (window.scrollY > 200) {
+                whatsappFloat.classList.add("show");
+            } else {
+                whatsappFloat.classList.remove("show");
+            }
+        };
+
+        window.addEventListener("scroll", mostrarSiCorresponde);
+        mostrarSiCorresponde();
+
+    }
+
+
 
     /* =====================================================
        MENÚ MOBILE
